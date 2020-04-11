@@ -1,0 +1,7 @@
+echo "# douban" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Spring0131-wzq/douban.git
+git push -u origin master
+                
