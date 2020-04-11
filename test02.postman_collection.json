@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "39e81ca9-1dac-4ade-a4f2-0239d1b586c9",
+		"name": "test02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "天气",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e58744d6-b89b-4969-b31e-bce3c33676bc",
+						"exec": [
+							"var city = pm.environment.get(\"cityname\");",
+							"console.log(city);",
+							"pm.environment.set(\"cityname\",\"常德\");",
+							"console.log(city);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce36420b-e547-4b11-a86c-2b66d58a683d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.tianqiapi.com/api/?appid=23035354&version=v1&city=昆明&appsecret=8YvlPNrz",
+					"protocol": "https",
+					"host": [
+						"www",
+						"tianqiapi",
+						"com"
+					],
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "23035354"
+						},
+						{
+							"key": "version",
+							"value": "v1"
+						},
+						{
+							"key": "city",
+							"value": "昆明"
+						},
+						{
+							"key": "appsecret",
+							"value": "8YvlPNrz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ip查询",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6502fe13-10bb-4952-94fa-8047478497b2",
+						"exec": [
+							"pm.test(\"验证状态码是 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"    ",
+							"pm.test(\"验证返回是否包含美国\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"\");",
+							"});",
+							"",
+							"",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "49f94d0a-a151-4c5b-a3a7-7996e41c2d4f",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=1.1.1.1&co=&resource_id=6006&t=1586509933994&ie=utf8&oe=gbk&cb=op_aladdin_callback&format=json&tn=baidu&cb=jQuery110204593591203552492_1586509886541&_=1586509886555",
+					"protocol": "https",
+					"host": [
+						"sp0",
+						"baidu",
+						"com"
+					],
+					"path": [
+						"8aQDcjqpAAV3otqbppnN2DJv",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "1.1.1.1"
+						},
+						{
+							"key": "co",
+							"value": ""
+						},
+						{
+							"key": "resource_id",
+							"value": "6006"
+						},
+						{
+							"key": "t",
+							"value": "1586509933994"
+						},
+						{
+							"key": "ie",
+							"value": "utf8"
+						},
+						{
+							"key": "oe",
+							"value": "gbk"
+						},
+						{
+							"key": "cb",
+							"value": "op_aladdin_callback"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "tn",
+							"value": "baidu"
+						},
+						{
+							"key": "cb",
+							"value": "jQuery110204593591203552492_1586509886541"
+						},
+						{
+							"key": "_",
+							"value": "1586509886555"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
